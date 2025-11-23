@@ -1,0 +1,5 @@
+[default]
+duration = "30m"
+path = "/home/patrick/.config/backgrounds"
+sorting = "random"
+mode = "center"
