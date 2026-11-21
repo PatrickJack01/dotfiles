@@ -5,6 +5,20 @@ SAVEHIST=1000
 setopt autocd extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
+
+# Cursor movement keys (kitty)
+# Ctrl+Left / Ctrl+Right: jump word-wise
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+# Home / End (Fn+Left / Fn+Right on the laptop): start / end of line
+bindkey '^[[H'  beginning-of-line
+bindkey '^[OH'  beginning-of-line
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[F'  end-of-line
+bindkey '^[OF'  end-of-line
+bindkey '^[[4~' end-of-line
+# Delete: delete the character under the cursor
+bindkey '^[[3~' delete-char
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/patrick/.zshrc'
 

@@ -22,13 +22,13 @@
 ------------------
 
 -- See https://wiki.hypr.land/configuring/core/monitors/
-hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
-})
-
+-- hl.monitor({
+--     output   = "",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = "auto",
+-- })
+--
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -80,15 +80,14 @@ hl.env("HYPRSHOT_DIR", "/home/patrick/Pictures/Screenshots") -- where hyprshot s
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
 -- for security reasons
 
--- hl.config({
---   ecosystem = {
---     enforce_permissions = true,
---   },
--- })
+hl.config({
+  ecosystem = {
+    enforce_permissions = true,
+  },
+})
 
--- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
--- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
--- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
+hl.permission({ binary = "/usr/(bin|local/bin)/grim", type = "screencopy", mode = "allow" })                       -- hyprshot screenshots
+hl.permission({ binary = "/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" }) -- screen sharing
 
 
 -----------------------
@@ -250,9 +249,10 @@ hl.config({
         follow_mouse = 1,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+        scroll_factor = 1.0, -- external mouse scroll speed (touchpad has its own)
 
         touchpad = {
-            natural_scroll = false,
+            natural_scroll = true,
         },
     },
 })
@@ -380,3 +380,6 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- hyprmon: managed monitor profile include
+require("hyprmon")
