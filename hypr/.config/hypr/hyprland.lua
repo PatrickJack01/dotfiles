@@ -381,5 +381,5 @@ hl.window_rule({
     float = true,
 })
 
--- hyprmon: managed monitor profile include
-require("hyprmon")
+-- Monitor rules for all setups (by description), see monitors.lua
+require("monitors")
